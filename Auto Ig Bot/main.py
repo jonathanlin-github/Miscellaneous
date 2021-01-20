@@ -2,7 +2,7 @@ from InstagramAPI import InstagramAPI
 from time import sleep
 import time
 import random
-import datetime
+
 
 
 api = InstagramAPI('username','password')
@@ -14,7 +14,7 @@ names = ['therock','kyliejenner','kendalljenner','kevinhart4real','cristiano','c
 
 def sleeep(time):
     bottom = int(time*60*.75)
-    top = int(time*60*1.75)
+    top = int(time*60*1.25)
     number = random.randint(bottom,top)
     sleep(number)
 
@@ -23,8 +23,9 @@ action_counter = 0
 
 start_time = time.time()
 while True:
-    if len(names) <= 2:
-        names = all_names
+    if len(names) == 0:
+        for temp_name in all_names:
+            names.append(temp_name)
     
     name = random.choice(names)
     names.remove(name)
